@@ -1,18 +1,16 @@
 /**
- * Mobile Application For duMedico(Patient)
- * Product Developed By: Dubin Labs Ltd.
+ * Mobile Application :: Class Management System
+ * Product Developed By: Nayeem Reza
  * Splash Screen || Author: Nayeem Reza
- * https://github.com/mostafiz93/DuMedi
+ * https://bitbucket.org/uraniumreza/classmanager
  */
 
 import React, { Component } from 'react';
 import { View, Image, AsyncStorage } from 'react-native';
-
-// import Meteor from 'react-native-meteor';
+import Spinner from 'react-native-spinkit';
+import { NavigationActions } from 'react-navigation';
 
 import Styles from './Styles';
-
-// const SERVER_URL = 'ws://durbintest.pro/websocket';
 
 export default class SplashScreen extends Component {
   static navigationOptions = {
@@ -25,9 +23,7 @@ export default class SplashScreen extends Component {
     this.state = {};
   }
 
-  componentWillMount() {
-    // Meteor.connect(SERVER_URL);
-  }
+  componentWillMount() {}
 
   componentDidMount() {
     // console.log('Mounted!', this);
@@ -37,29 +33,46 @@ export default class SplashScreen extends Component {
   async checkUserSignedIn() {
     const context = this;
     try {
-      console.log('checking signin status...');
+      // console.log('checking signin status...');
       const value = await AsyncStorage.getItem('user');
-      console.log(value);
+      // console.log(value);
       const jsonParsedValue = JSON.parse(value);
 
       if (value != null) {
-        console.log(jsonParsedValue);
+        // console.log(jsonParsedValue);
 
-        context.props.navigation.navigate('HomePage', {
-          user: JSON.parse(value),
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'HomePage' })],
         });
+
+        setTimeout(() => context.props.navigation.dispatch(resetAction), 3000);
       } else {
-        console.log('Log In ---> ');
-        context.props.navigation.navigate('Login');
+        // console.log('Log In ---> ');
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'Login' })],
+        });
+
+        setTimeout(() => context.props.navigation.dispatch(resetAction), 3000);
       }
     } catch (error) {
       // Error retrieving data
-      console.log('Error: ', error);
+      // console.log('Error: ', error);
     }
-    console.log('Checked!');
+    // console.log('Checked!');
   }
 
   render() {
-    return <Image style={Styles.imageStyle} source={require('../../images/SplashScreen.png')} />;
+    return (
+      <View style={{ flex: 1, backgroundColor: '#FFF' }}>
+        <View style={Styles.imageView}>
+          <Image style={Styles.image} source={require('../../icons/icon.png')} />
+        </View>
+        <View style={Styles.container}>
+          <Spinner style={Styles.spinner} isVisible size={100} type="ThreeBounce" color="#0fc9ff" />
+        </View>
+      </View>
+    );
   }
 }

@@ -1,18 +1,32 @@
 /**
- * Mobile Application For duMedico(Patient)
- * Product Developed By: Dubin Labs Ltd.
+ * Mobile Application :: Class Management System
+ * Product Developed By: Nayeem Reza
  * StyleSheet for SplashScreen || Author: Nayeem Reza
- * https://github.com/mostafiz93/DuMedi
+ * https://bitbucket.org/uraniumreza/classmanager
  */
 
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { Width, Height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default StyleSheet.create({
-  imageStyle: {
-    flex: 1,
-    width: null,
-    height: null,
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
   },
+  imageView: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: height * 0.25,
+  },
+  container: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+
+  spinner: {},
 });
