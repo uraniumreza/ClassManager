@@ -1,8 +1,8 @@
 /**
- * Mobile Application For duMedico(Patient)
- * Product Developed By: Dubin Labs Ltd.
- * StyleSheet for SplashScreen || Author: Nayeem Reza
- * https://github.com/mostafiz93/DuMedi
+ * Mobile Application :: Class Management System
+ * Product Developed By: Nayeem Reza
+ * StyleSheet for Authentication || Author: Nayeem Reza
+ * https://bitbucket.org/uraniumreza/classmanager
  */
 
 import { StyleSheet, Dimensions } from 'react-native';
@@ -18,26 +18,12 @@ export default StyleSheet.create({
   imageView: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 50,
+    marginBottom: 40,
   },
   textView: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  textFP: {
-    fontSize: 14,
-    textAlign: 'center',
-    margin: 10,
-    color: '#0fc9ff',
-    textDecorationLine: 'underline',
-    fontFamily: 'monospace',
-    marginTop: 15,
-  },
-  textOr: {
-    fontSize: 14,
-    textAlign: 'center',
-    margin: 10,
-    color: '#0fc9ff',
-    fontStyle: 'italic',
   },
   buttonText: {
     color: '#FFFFFF',
@@ -58,9 +44,9 @@ export default StyleSheet.create({
     borderWidth: 0.7,
     borderRadius: 6,
     borderColor: '#0fc9ff',
-    borderBottomWidth: 0,
+    borderBottomWidth: 0.7,
     shadowOffset: { width: 2, height: 0 },
-    shadowColor: '#0fc9ff',
+    shadowColor: '#F0F5F6',
     shadowOpacity: 1,
     shadowRadius: 2,
     elevation: 1,
@@ -80,5 +66,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
 });
