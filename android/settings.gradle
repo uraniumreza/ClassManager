@@ -1,0 +1,3 @@
+rootProject.name = 'ClassManager'
+
+include ':app'
