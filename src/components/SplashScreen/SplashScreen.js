@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import { View, Image, AsyncStorage } from 'react-native';
 import Spinner from 'react-native-spinkit';
 import { NavigationActions } from 'react-navigation';
+import firebase from 'firebase';
 
 import Styles from './Styles';
 
@@ -23,7 +24,18 @@ export default class SplashScreen extends Component {
     this.state = {};
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    const config = {
+      apiKey: 'AIzaSyCJHuNqauIMq784fDc8quXMH6znTg5N_jQ',
+      authDomain: 'classmanager-3fdac.firebaseapp.com',
+      databaseURL: 'https://classmanager-3fdac.firebaseio.com',
+      projectId: 'classmanager-3fdac',
+      storageBucket: 'classmanager-3fdac.appspot.com',
+      messagingSenderId: '155614632038',
+    };
+
+    firebase.initializeApp(config);
+  }
 
   componentDidMount() {
     // console.log('Mounted!', this);
