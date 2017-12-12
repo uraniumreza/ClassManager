@@ -27,6 +27,4 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
-
-  spinner: {},
 });

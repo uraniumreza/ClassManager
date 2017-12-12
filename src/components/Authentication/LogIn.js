@@ -45,7 +45,7 @@ export default class LogIn extends Component {
       actions: [NavigationActions.navigate({ routeName: 'HomePage' })],
     });
 
-    setTimeout(() => this.props.navigation.dispatch(resetAction), 1000);
+    setTimeout(() => this.props.navigation.dispatch(resetAction), 1500);
 
     // this.setState({ signInPressed: true });
     // Meteor.loginWithPassword(this.state.email, this.state.password, (err) => {

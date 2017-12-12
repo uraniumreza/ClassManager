@@ -1,8 +1,8 @@
 /**
- * Mobile Application For duMedico(Patient)
- * Product Developed By: Dubin Labs Ltd.
+ * Mobile Application :: Class Management System
+ * Product Developed By: Nayeem Reza
  * StyleSheet for Header || Author: Nayeem Reza
- * https://github.com/mostafiz93/DuMedi
+ * https://bitbucket.org/uraniumreza/classmanager
  */
 
 import { StyleSheet } from 'react-native';
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: '#0fc9ff',
-    height: 90,
+    height: 55,
     elevation: 0,
     position: 'relative',
   },
@@ -21,28 +21,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     textAlign: 'center',
     fontFamily: 'Roboto',
-    fontSize: 20,
+    fontSize: 22,
     color: 'white',
-    marginBottom: 35,
-  },
-  menuButton: {
-    height: 30,
-    width: 30,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    bottom: 47,
-    left: 15,
-  },
-  notificationButton: {
-    height: 30,
-    width: 30,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    bottom: 47,
-    right: 15,
   },
 });

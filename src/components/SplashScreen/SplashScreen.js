@@ -70,7 +70,7 @@ export default class SplashScreen extends Component {
           <Image style={Styles.image} source={require('../../icons/icon.png')} />
         </View>
         <View style={Styles.container}>
-          <Spinner style={Styles.spinner} isVisible size={100} type="ThreeBounce" color="#0fc9ff" />
+          <Spinner isVisible size={100} type="ThreeBounce" color="#0fc9ff" />
         </View>
       </View>
     );

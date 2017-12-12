@@ -21,10 +21,6 @@ export default StyleSheet.create({
     marginTop: 50,
     marginBottom: 40,
   },
-  textView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   buttonText: {
     color: '#FFFFFF',
     fontSize: 18,
@@ -51,21 +47,6 @@ export default StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
     backgroundColor: '#FFF',
-  },
-  leftLine: {
-    borderWidth: 0.5,
-    width: width * 0.4,
-    borderColor: '#0fc9ff',
-  },
-  rightLine: {
-    borderWidth: 0.5,
-    width: width * 0.4,
-    borderColor: '#0fc9ff',
-  },
-  orView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   container: {
     flex: 1,
