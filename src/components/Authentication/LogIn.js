@@ -6,11 +6,12 @@
  */
 
 import React, { Component } from 'react';
-import { Text, View, Image, Modal, AsyncStorage } from 'react-native';
+import { Text, View, Image, AsyncStorage, ToastAndroid } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
 import { Container, Content, Form, Item, Input, Button } from 'native-base';
 import Spinner from 'react-native-spinkit';
+import firebase from 'firebase';
 import Styles from './Styles';
 
 export default class LogIn extends Component {
@@ -23,47 +24,51 @@ export default class LogIn extends Component {
 
     this.state = {
       signInPressed: false,
-      email: null,
-      password: null,
+      email: 'email@gmail.com',
+      password: 'password',
     };
+
+    this.focusNextField = this.focusNextField.bind(this);
+    this.inputs = {};
   }
 
   componentWillMount() {}
 
   componentWillUnmount() {}
 
+  focusNextField(id) {
+    this.inputs[id].wrappedInstance.focus();
+  }
+
   async saveUser(user) {
     await AsyncStorage.setItem('user', JSON.stringify(user));
   }
 
   handleLogin() {
-    console.log('--------- HANDLE LOGIN ---------');
+    const { email, password } = this.state;
+    const user = {
+      email,
+      password,
+    };
     this.setState({ signInPressed: true });
-    // this.props.navigation.navigate('HomePage');
+
     const resetAction = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'HomePage' })],
     });
 
-    setTimeout(() => this.props.navigation.dispatch(resetAction), 1500);
-
-    // this.setState({ signInPressed: true });
-    // Meteor.loginWithPassword(this.state.email, this.state.password, (err) => {
-    //   console.log(err, res);
-    //   console.log(Meteor.user());
-    //   if (err) {
-    //     this.setState({ visibleSnackBar1: true });
-    //     ToastAndroid.show("Sorry, Contact Number and Password Did'nt Match!", ToastAndroid.SHORT);
-    //     this.setState({ signInPressed: false });
-    //   } else {
-    //     const usr = AsyncStorage.getItem('user');
-    //     ToastAndroid.show(`Welcome ${usr.profile.name}`, ToastAndroid.SHORT);
-    //     this.saveUser(usr);
-    //     this.props.navigation.navigate('HomePage', {
-    //       user: usr,
-    //     });
-    //   }
-    // });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setTimeout(() => this.props.navigation.dispatch(resetAction), 500);
+        this.saveUser(user);
+        ToastAndroid.show('Welcome to Math Circle Class Management System!', ToastAndroid.SHORT);
+      })
+      .catch(() => {
+        this.setState({ signInPressed: false });
+        ToastAndroid.show('Wrong Email or Password!', ToastAndroid.SHORT);
+      });
   }
 
   render() {
@@ -82,18 +87,32 @@ export default class LogIn extends Component {
           <Form>
             <Item regular style={Styles.item}>
               <Input
+                keyboardType="email-address"
                 placeholderTextColor="#B6B2B2"
-                placeholder="Email Address"
+                placeholder="email@gmail.com"
                 onChangeText={email => this.setState({ email })}
+                blurOnSubmit={false}
+                onSubmitEditing={() => {
+                  this.focusNextField('two');
+                }}
+                returnKeyType="next"
+                ref={(input) => {
+                  this.inputs['one'] = input;
+                }}
               />
             </Item>
             <View style={{ marginTop: 15 }} />
             <Item regular style={Styles.item}>
               <Input
                 placeholderTextColor="#B6B2B2"
-                placeholder="Password"
+                placeholder="password"
                 secureTextEntry
                 onChangeText={password => this.setState({ password })}
+                blurOnSubmit
+                returnKeyType="done"
+                ref={(input) => {
+                  this.inputs['two'] = input;
+                }}
               />
             </Item>
           </Form>
@@ -107,7 +126,7 @@ export default class LogIn extends Component {
 
           {this.state.signInPressed && (
             <View style={Styles.container}>
-              <Spinner isVisible size={100} type="ThreeBounce" color="#0fc9ff" />
+              <Spinner isVisible size={60} type="ThreeBounce" color="#0fc9ff" />
             </View>
           )}
 
