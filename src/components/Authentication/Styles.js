@@ -7,7 +7,7 @@
 
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default StyleSheet.create({
   image: {
@@ -50,6 +50,18 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  imageViewLogout: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: height * 0.25,
+  },
+  containerLogout: {
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',

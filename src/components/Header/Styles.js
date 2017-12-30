@@ -24,4 +24,22 @@ export default StyleSheet.create({
     fontSize: 22,
     color: 'white',
   },
+  menuButton: {
+    height: 30,
+    width: 30,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    left: 15,
+  },
+  notificationButton: {
+    height: 30,
+    width: 30,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 15,
+  },
 });

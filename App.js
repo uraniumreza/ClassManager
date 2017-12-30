@@ -5,29 +5,53 @@
  * https://bitbucket.org/uraniumreza/classmanager
  */
 
-import { StackNavigator } from 'react-navigation';
-
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { Dimensions } from 'react-native';
 import SplashScreen from './src/components/SplashScreen/SplashScreen';
-import HomePage from './src/components/HomePage/HomePage';
+import BatchList from './src/components/BatchList/BatchList';
 import LogIn from './src/components/Authentication/LogIn';
+import SideMenu from './src/components/SideMenu/SideMenu';
+import Logout from './src/components/Authentication/Logout';
 
-const duMedico = StackNavigator(
+const { width } = Dimensions.get('window');
+
+const Stack = {
+  SplashScreen: {
+    name: 'SplashScreen',
+    screen: SplashScreen,
+  },
+  Login: {
+    screen: LogIn,
+  },
+  Logout: {
+    screen: Logout,
+  },
+  HomePage: {
+    screen: BatchList,
+  },
+};
+
+const DrawerRoutes = {
+  Home: {
+    screen: StackNavigator(Stack, { initialRouteName: 'SplashScreen' }),
+  },
+};
+
+const ClassManager = StackNavigator(
   {
-    SplashScreen: {
-      name: 'SplashScreen',
-      screen: SplashScreen,
+    Drawer: {
+      name: 'Drawer',
+      screen: DrawerNavigator(DrawerRoutes, {
+        drawerWidth: width * 0.7,
+        contentComponent: SideMenu,
+      }),
     },
-    Login: {
-      screen: LogIn,
-    },
-    HomePage: {
-      screen: HomePage,
-    },
+    ...Stack,
   },
   {
-    initialRouteName: 'SplashScreen',
+    drawerWidth: 300,
     headerMode: 'none',
   },
 );
 
-export default duMedico;
+export default ClassManager;

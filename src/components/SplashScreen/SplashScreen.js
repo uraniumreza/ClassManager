@@ -76,7 +76,7 @@ export default class SplashScreen extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <View style={Styles.imageView}>
-          <Image style={Styles.image} source={require('../../icons/icon.png')} />
+          <Image style={Styles.image} source={require('../../../assets/icons/icon.png')} />
         </View>
         <View style={Styles.container}>
           <Spinner isVisible size={60} type="ThreeBounce" color="#0fc9ff" />

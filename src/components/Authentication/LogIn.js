@@ -54,7 +54,7 @@ export default class LogIn extends Component {
 
     const resetAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'HomePage' })],
+      actions: [NavigationActions.navigate({ routeName: 'BatchList' })],
     });
 
     firebase
@@ -81,7 +81,7 @@ export default class LogIn extends Component {
       >
         <Content>
           <View style={Styles.imageView}>
-            <Image style={Styles.image} source={require('../../icons/icon.png')} />
+            <Image style={Styles.image} source={require('../../../assets/icons/icon.png')} />
           </View>
 
           <Form>
