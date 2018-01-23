@@ -31,7 +31,7 @@ class SideMenu extends Component {
           </View>
           <View>
             <View style={Styles.navSectionStyle}>
-              <TouchableOpacity onPress={this.navigateToScreen('HomePage')}>
+              <TouchableOpacity onPress={this.navigateToScreen('BatchList')}>
                 <View style={Styles.navItemStyle}>
                   <Image
                     style={Styles.navIconStyle}
@@ -41,8 +41,10 @@ class SideMenu extends Component {
                 </View>
               </TouchableOpacity>
 
+              <View style={Styles.horizontalLine} />
+
               <TouchableOpacity onPress={this.navigateToScreen('Appointments')}>
-                <View style={[Styles.navItemStyle, { paddingTop: 40 }]}>
+                <View style={[Styles.navItemStyle, { paddingTop: 15 }]}>
                   <Image
                     style={Styles.navIconStyle}
                     source={require('../../../assets/icons/schedule.png')}
@@ -51,8 +53,10 @@ class SideMenu extends Component {
                 </View>
               </TouchableOpacity>
 
+              <View style={Styles.horizontalLine} />
+
               <TouchableOpacity onPress={this.navigateToScreen('MyProfile')}>
-                <View style={[Styles.navItemStyle, { paddingTop: 40 }]}>
+                <View style={[Styles.navItemStyle, { paddingTop: 15 }]}>
                   <Image
                     style={Styles.navIconStyle}
                     source={require('../../../assets/icons/statistics.png')}
@@ -61,8 +65,10 @@ class SideMenu extends Component {
                 </View>
               </TouchableOpacity>
 
+              <View style={Styles.horizontalLine} />
+
               <TouchableOpacity onPress={this.navigateToScreen('Logout')}>
-                <View style={[Styles.navItemStyle, { paddingTop: 40 }]}>
+                <View style={[Styles.navItemStyle, { paddingTop: 15 }]}>
                   <Image
                     style={Styles.navIconStyle}
                     source={require('../../../assets/icons/logout.png')}
@@ -70,6 +76,8 @@ class SideMenu extends Component {
                   <Text style={Styles.navTextStyle}>Sign Out</Text>
                 </View>
               </TouchableOpacity>
+
+              <View style={Styles.horizontalLine} />
             </View>
           </View>
         </ScrollView>

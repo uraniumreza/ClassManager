@@ -17,7 +17,7 @@ export default {
     position: 'relative',
   },
   navItemStyle: {
-    paddingTop: 30,
+    paddingTop: 18,
     paddingLeft: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -30,6 +30,7 @@ export default {
     width: 24,
     height: 24,
     resizeMode: 'contain',
+    opacity: 0.6,
   },
   navSectionStyle: {},
   sectionHeadingStyle: {
@@ -40,6 +41,7 @@ export default {
     flex: 1,
     width: width * 0.7,
     height: width * 0.46,
+    opacity: 0.9,
   },
   headerText: {
     position: 'absolute',
@@ -47,5 +49,11 @@ export default {
     left: 20,
     color: '#FFF',
     fontSize: 19,
+  },
+  horizontalLine: {
+    width: width * 0.7,
+    borderWidth: 0.2,
+    opacity: 0.2,
+    marginTop: 18,
   },
 };
