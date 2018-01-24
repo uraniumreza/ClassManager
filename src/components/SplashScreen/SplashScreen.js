@@ -53,10 +53,10 @@ export default class SplashScreen extends Component {
       if (value != null) {
         const resetAction = NavigationActions.reset({
           index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'HomePage' })],
+          actions: [NavigationActions.navigate({ routeName: 'BatchList' })],
         });
 
-        setTimeout(() => context.props.navigation.dispatch(resetAction), 2000);
+        setTimeout(() => context.props.navigation.dispatch(resetAction), 1000);
         ToastAndroid.show('Welcome to Math Circle Class Management System!', ToastAndroid.SHORT);
       } else {
         const resetAction = NavigationActions.reset({
@@ -64,7 +64,7 @@ export default class SplashScreen extends Component {
           actions: [NavigationActions.navigate({ routeName: 'Login' })],
         });
 
-        setTimeout(() => context.props.navigation.dispatch(resetAction), 2000);
+        setTimeout(() => context.props.navigation.dispatch(resetAction), 1000);
       }
     } catch (error) {
       // Error retrieving data

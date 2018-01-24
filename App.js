@@ -1,7 +1,6 @@
 /**
  * Mobile Application :: Class Management System
- * Product Developed By: Nayeem Reza
- * App.js || Author: Nayeem Reza
+ * Project Developed By: Nayeem Reza
  * https://bitbucket.org/uraniumreza/classmanager
  */
 
@@ -26,7 +25,7 @@ const Stack = {
   Logout: {
     screen: Logout,
   },
-  HomePage: {
+  BatchList: {
     screen: BatchList,
   },
 };

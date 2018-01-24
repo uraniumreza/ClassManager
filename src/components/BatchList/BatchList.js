@@ -6,10 +6,13 @@
  */
 
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { View } from 'react-native';
+import { Fab, Button } from 'native-base';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 import Header from '../Header/Header';
 import Styles from './Styles';
+import AddNewBatch from './AddNewBatch';
 
 export default class BatchList extends Component {
   static navigationOptions = {
@@ -19,80 +22,32 @@ export default class BatchList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      modalVisible: false,
+    };
+
+    this.toggleModalVisibility = this.toggleModalVisibility.bind(this);
+  }
+
+  toggleModalVisibility() {
+    this.setState({ modalVisible: !this.state.modalVisible });
   }
 
   render() {
     const { navigate } = this.props.navigation;
+    const { modalVisible } = this.state;
 
     return (
       <View style={{ position: 'relative', flex: 1, backgroundColor: '#FFF' }}>
-        <Header headerText="BATCH LIST" navigation={this.props.navigation} />
-        <View style={Styles.rowSetStyle}>
-          <TouchableOpacity onPress={() => console.log('Batch List!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/batchList.png')}
-              />
-              <Text style={Styles.textStyle}>Batch List</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => console.log('My Schedule!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/schedule.png')}
-              />
-              <Text style={Styles.textStyle}>My Schedule</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={Styles.rowSetStyle}>
-          <TouchableOpacity onPress={() => console.log('Attendence!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/attendence.png')}
-              />
-              <Text style={Styles.textStyle}>Attendence</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => console.log('Payment!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/payment.png')}
-              />
-              <Text style={Styles.textStyle}>Payment</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={Styles.rowSetStyle}>
-          <TouchableOpacity onPress={() => console.log('Statistics!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/statistics.png')}
-              />
-              <Text style={Styles.textStyle}>Statistics</Text>
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => console.log('Log Out!')}>
-            <View style={Styles.contentSetStyle}>
-              <Image
-                style={Styles.imageStyle}
-                source={require('../../../assets/icons/logout.png')}
-              />
-              <Text style={Styles.textStyle}>Sign Out</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <Header headerText="Batch List" navigation={this.props.navigation} />
+        <AddNewBatch visible={modalVisible} toggleModalVisibility={this.toggleModalVisibility} />
+        <Fab
+          style={{ backgroundColor: '#0fc9ff' }}
+          position="bottomRight"
+          onPress={this.toggleModalVisibility}
+        >
+          <Entypo size={25} name="plus" />
+        </Fab>
       </View>
     );
   }

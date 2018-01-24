@@ -32,10 +32,6 @@ export default class LogIn extends Component {
     this.inputs = {};
   }
 
-  componentWillMount() {}
-
-  componentWillUnmount() {}
-
   focusNextField(id) {
     this.inputs[id].wrappedInstance.focus();
   }
@@ -109,6 +105,7 @@ export default class LogIn extends Component {
                 secureTextEntry
                 onChangeText={password => this.setState({ password })}
                 blurOnSubmit
+                onSubmitEditing={this.handleLogin.bind(this)}
                 returnKeyType="done"
                 ref={(input) => {
                   this.inputs['two'] = input;

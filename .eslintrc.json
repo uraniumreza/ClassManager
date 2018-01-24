@@ -16,6 +16,8 @@
     "react/jsx-indent-props": 0,
     "no-alert": 0,
     "react/prop-types": 0,
-    "dot-notation": 0
+    "dot-notation": 0,
+    "import/prefer-default-export": 0,
+    "react/no-array-index-key": 0
   }
 }

@@ -9,7 +9,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-export default StyleSheet.create({
+export const Styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
