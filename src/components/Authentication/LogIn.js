@@ -12,6 +12,7 @@ import { NavigationActions } from 'react-navigation';
 import { Container, Content, Form, Item, Input, Button } from 'native-base';
 import Spinner from 'react-native-spinkit';
 import firebase from 'firebase';
+
 import Styles from './Styles';
 
 export default class LogIn extends Component {

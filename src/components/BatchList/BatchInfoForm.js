@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Content, Form, Item, Input } from 'native-base';
 
-import { Styles as FormStyles } from '../Authentication/Styles';
+import FormStyles from '../Authentication/Styles';
 import Styles from './Styles';
 
 export default class BatchInfoForm extends Component {
